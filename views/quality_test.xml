@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_quality_test_tree" model="ir.ui.view">
+            <field name="name">Quality Test</field>
+            <field name="model">quality.test</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="quality_alert_id"/>
+                    <field name="measure_id"/>
+                    <field name="result"/>
+                    <field name="status"/>
+                </tree>
+            </field>
+        </record>
+        <record id="view_quality_test_form" model="ir.ui.view">
+            <field name="name">Quality Test</field>
+            <field name="model">quality.test</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <group>
+                                <group>
+                                    <field name="measure_id"/>
+                                    <field name="test_type"/>
+                                    <field name="result"/>
+                                    <field name="status"/>
+                                    <field name="quality_alert_id"/>
+                                    <field name="product_id"/>
+                                    <field name="stock_picking" invisible="1"/>
+                                </group>
+                            </group>
+                            <group>
+                                <group>
+                                    <field name="minimum_quantity" attrs="{'invisible': [('boolean','==',False)]}"/>
+                                    <field name="maximum_quantity" attrs="{'invisible': [('boolean','==',False)]}"/>
+                                    <field name="boolean" invisible="1"/>
+                                </group>
+                            </group>
+                        </group>
+                    </sheet>
+                     <div class="oe_chatter">
+                        <field name="message_follower_ids"/>
+                        <field name="message_ids"/>
+                        <field name="activity_ids"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+        <record id="view_quality_test_search" model="ir.ui.view">
+            <field name="name">Quality Test</field>
+            <field name="model">quality.test</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="product_id"/>
+                </search>
+            </field>
+        </record>
+    </data>
+</odoo>

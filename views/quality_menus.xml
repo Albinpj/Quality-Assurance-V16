@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <menuitem id="quality_menu_configuration"
+                  name="Quality"
+                  sequence="1"/>
+        <menuitem id="quality_assurance_sub_configuration"
+                  name="Quality Assurance"
+                  parent="quality_menu_configuration"
+                  sequence="2"/>
+        <menuitem id="quality_assurance_configuration_settings"
+                  name="Configuration"
+                  parent="quality_menu_configuration"
+                  sequence="3"/>
+        <record id="test_model_action_measure" model="ir.actions.act_window">
+            <field name="name">Quality Measure</field>
+            <field name="res_model">quality.measure</field>
+            <field name="view_mode">tree,form,kanban</field>
+        </record>
+        <menuitem id="quality_measure_configuration"
+                  name="Quality Measure"
+                  parent="quality_assurance_sub_configuration"
+                  action="test_model_action_measure"
+                  sequence="3"/>
+        <record id="test_model_action_alert" model="ir.actions.act_window">
+            <field name="name">Quality Alert</field>
+            <field name="res_model">quality.alert</field>
+            <field name="view_mode">tree,form,kanban</field>
+        </record>
+        <menuitem id="quality_alert_configuration"
+                  name="Quality Alert"
+                  parent="quality_assurance_sub_configuration"
+                  action="test_model_action_alert"
+                  sequence="4"/>
+        <record id="test_model_action_test" model="ir.actions.act_window">
+            <field name="name">Quality Test</field>
+            <field name="res_model">quality.test</field>
+            <field name="view_mode">tree,form,kanban</field>
+        </record>
+        <menuitem id="quality_test_configuration"
+                  name="Quality Test"
+                  parent="quality_assurance_configuration_settings"
+                  action="test_model_action_test"
+                  sequence="4"/>
+    </data>
+</odoo>
